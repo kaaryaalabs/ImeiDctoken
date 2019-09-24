@@ -18,10 +18,6 @@ import org.json.JSONObject;
 public class ImeiDctoken extends CordovaPlugin {
 
     public static CordovaInterface cordova;
-    @Override
-	public void initialize(CordovaInterface cordovaInterface) {
-		super.initialize(cordovaInterface);
-    }
     
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
