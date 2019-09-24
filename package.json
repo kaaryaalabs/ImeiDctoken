@@ -1,0 +1,22 @@
+{
+  "name": "imeidctoken",
+  "version": "1.0.0",
+  "description": "this plugin helps you to get IMEI in android and Device Check token in ios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "imei",
+    "android",
+    "ios",
+    "device",
+    "check",
+    "api",
+    "device",
+    "check",
+    "token"
+  ],
+  "author": "ankit@KaaryaLabs",
+  "license": "ISC"
+}
