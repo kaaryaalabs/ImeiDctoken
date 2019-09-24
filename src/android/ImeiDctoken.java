@@ -23,6 +23,10 @@ public class ImeiDctoken extends CordovaPlugin {
             this.getImei(args, callbackContext);
             return true;
         }
+        if (action.equals("getDcToken")) {
+            this.getImei(args, callbackContext);
+            return true;
+        }
         return false;
     }
 
@@ -33,4 +37,8 @@ public class ImeiDctoken extends CordovaPlugin {
 		String imei = mTelephony.getDeviceId();
         callbackContext.success(imei);
     }
+    private void getDcToken(JSONArray args, CallbackContext callbackContext) {
+        callbackContext.error("Only for iOS");
+    }
 }
+//using new method imei is:  866078048338171

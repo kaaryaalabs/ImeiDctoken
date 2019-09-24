@@ -21,6 +21,6 @@
                 <param name="ios-package" value="ImeiDctoken" />
             </feature>
         </config-file>
-        <source-file src="src/ios/ImeiDctoken.m" />
+        <source-file src="src/ios/ImeiDctoken.swift" />
     </platform>
 </plugin>
