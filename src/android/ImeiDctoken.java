@@ -28,7 +28,7 @@ public class ImeiDctoken extends CordovaPlugin {
 
     private void getImei(JSONArray args, CallbackContext callbackContext) {
         String deviceUniqueIdentifier = null;
-        CordovaInterface cordova = new CordovaInterface();
+        final CordovaInterface cordova = this.cordova;
         Context context = cordova.getActivity().getApplicationContext();
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (null != tm) {
