@@ -1,5 +1,9 @@
 package cordova.plugin.kaarya.imeidctoken;
 
+import android.content.Context;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 
@@ -23,14 +27,15 @@ public class ImeiDctoken extends CordovaPlugin {
 
     private void getImei(JSONArray args, CallbackContext callbackContext) {
         String deviceUniqueIdentifier = null;
-        TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        Context context = cordova.getActivity().getApplicationContext();
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (null != tm) {
             deviceUniqueIdentifier = tm.getDeviceId();
         }
+        // if (null == deviceUniqueIdentifier || 0 == deviceUniqueIdentifier.length()) {
+        //     deviceUniqueIdentifier = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
+        // }
         if (null == deviceUniqueIdentifier || 0 == deviceUniqueIdentifier.length()) {
-            deviceUniqueIdentifier = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
-        }
-        if (deviceUniqueIdentifier) {
             callbackContext.success(deviceUniqueIdentifier);
         } else {
             callbackContext.error("Error finding IMEI");
