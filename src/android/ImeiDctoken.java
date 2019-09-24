@@ -15,7 +15,7 @@ public class ImeiDctoken extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("getImei")) {
-            this.coolMethod(args, callbackContext);
+            this.getImei(args, callbackContext);
             return true;
         }
         return false;
