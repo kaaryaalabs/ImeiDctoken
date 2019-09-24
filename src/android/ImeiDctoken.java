@@ -21,12 +21,6 @@ public class ImeiDctoken extends CordovaPlugin {
     @Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
-		Context context = cordova.getActivity().getApplicationContext();
-		UID.uuid = getUuid(context);
-		UID.imei = getImei(context);
-		UID.imsi = getImsi(context);
-		UID.iccid = getIccid(context);
-		UID.mac = getMac(context);
     }
     
     @Override
