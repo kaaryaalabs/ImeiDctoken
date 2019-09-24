@@ -19,8 +19,8 @@ public class ImeiDctoken extends CordovaPlugin {
 
     public static CordovaInterface cordova;
     @Override
-	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-		super.initialize(cordova, webView);
+	public void initialize(CordovaInterface cordovaInterface) {
+		super.initialize(cordovaInterface);
     }
     
     @Override
