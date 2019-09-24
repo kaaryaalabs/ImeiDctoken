@@ -28,20 +28,9 @@ public class ImeiDctoken extends CordovaPlugin {
 
     private void getImei(JSONArray args, CallbackContext callbackContext) {
         String deviceUniqueIdentifier = null;
-        Context context = cordova.getActivity().getWindow().getContext();
-        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        if (null != tm) {
-            deviceUniqueIdentifier = tm.getDeviceId();
-        } else {
-            callbackContext.error("Error in TelephonyManager");
-        }
-        // if (null == deviceUniqueIdentifier || 0 == deviceUniqueIdentifier.length()) {
-        //     deviceUniqueIdentifier = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
-        // }
-        if (null == deviceUniqueIdentifier || 0 == deviceUniqueIdentifier.length()) {
-            callbackContext.success(deviceUniqueIdentifier);
-        } else {
-            callbackContext.error("Error finding IMEI");
-        }
+        Context context = cordova.getActivity().getApplicationContext();
+        final TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		String imei = mTelephony.getDeviceId();
+        callbackContext.success(imei);
     }
 }
