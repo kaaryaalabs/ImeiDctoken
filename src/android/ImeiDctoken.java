@@ -34,6 +34,8 @@ public class ImeiDctoken extends CordovaPlugin {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (null != tm) {
             deviceUniqueIdentifier = tm.getDeviceId();
+        } else {
+            callbackContext.error("Error in TelephonyManager");
         }
         // if (null == deviceUniqueIdentifier || 0 == deviceUniqueIdentifier.length()) {
         //     deviceUniqueIdentifier = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
