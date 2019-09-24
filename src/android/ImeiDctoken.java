@@ -17,6 +17,18 @@ import org.json.JSONObject;
  */
 public class ImeiDctoken extends CordovaPlugin {
 
+    public static CordovaInterface cordova;
+    @Override
+	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+		super.initialize(cordova, webView);
+		Context context = cordova.getActivity().getApplicationContext();
+		UID.uuid = getUuid(context);
+		UID.imei = getImei(context);
+		UID.imsi = getImsi(context);
+		UID.iccid = getIccid(context);
+		UID.mac = getMac(context);
+    }
+    
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("getImei")) {
@@ -28,7 +40,6 @@ public class ImeiDctoken extends CordovaPlugin {
 
     private void getImei(JSONArray args, CallbackContext callbackContext) {
         String deviceUniqueIdentifier = null;
-        final CordovaInterface cordova = this.cordova;
         Context context = cordova.getActivity().getApplicationContext();
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (null != tm) {
