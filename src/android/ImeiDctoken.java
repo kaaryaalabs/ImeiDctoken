@@ -16,8 +16,6 @@ import org.json.JSONObject;
  * This class echoes a string called from JavaScript.
  */
 public class ImeiDctoken extends CordovaPlugin {
-
-    public static CordovaInterface cordova;
     
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -30,7 +28,7 @@ public class ImeiDctoken extends CordovaPlugin {
 
     private void getImei(JSONArray args, CallbackContext callbackContext) {
         String deviceUniqueIdentifier = null;
-        Context context = IS_AT_LEAST_LOLLIPOP ? cordova.getActivity().getWindow().getContext() : cordova.getActivity().getApplicationContext();
+        Context context = cordova.getActivity().getWindow().getContext();
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (null != tm) {
             deviceUniqueIdentifier = tm.getDeviceId();
